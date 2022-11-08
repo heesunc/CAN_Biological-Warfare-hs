@@ -7,24 +7,24 @@ import java.awt.*;
 import java.net.*;
 import javax.swing.tree.*;
 
-class Game implements ActionListener{
-JFrame jf;
-JPanel mainp, lp, rp;
-JButton btn[][] = new JButton[6][6];
-int board[][] = new int[6][6];
-int result[][] = new int[6][6];
-int red = 4, blue = 4, r1 = 0, rr = 0, b = 0, bb = 0;
-ImageIcon r = new ImageIcon("1.gif");
-ImageIcon bl = new ImageIcon("2.gif");
-int turn = 1;
-JLabel rpbred = new JLabel();
-JLabel rpbblue = new JLabel();
-JLabel redct = new JLabel("" + red);
-JLabel bluect = new JLabel("" + blue);
-JLabel left = new JLabel(" ");
-JLabel right = new JLabel(" ");
+class Cell implements ActionListener{
+	JFrame jf;
+	JPanel mainp, lp, rp;
+	JButton btn[][] = new JButton[6][6];
+	int board[][] = new int[6][6];
+	int result[][] = new int[6][6];
+	int red = 4, blue = 4, r1 = 0, rr = 0, b = 0, bb = 0;
+	ImageIcon r = new ImageIcon("1.gif");
+	ImageIcon bl = new ImageIcon("2.gif");
+	int turn = 1;
+	JLabel rpbred = new JLabel();
+	JLabel rpbblue = new JLabel();
+	JLabel redct = new JLabel("" + red);
+	JLabel bluect = new JLabel("" + blue);
+	JLabel left = new JLabel(" ");
+	JLabel right = new JLabel(" ");
 
-void Cell() {
+	Cell() {
 		jf = new JFrame("¼¼±ÕÀü");
 		mainp = new JPanel();
 		lp = new JPanel();
@@ -172,35 +172,35 @@ void select (String s, JButton b) {
 			board[i][j]=9;
 			try {
 				btn [i][j+1].setBackground (Color.BLUE);
-				board[i] [j+1] = 1;
+				board[i] [j+1] = 2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try {
 				btn [i][j-1].setBackground (Color.BLUE);
-				board[i] [j-1]=1;
+				board[i] [j-1]=2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try {
 				btn [i+1] [j].setBackground (Color.BLUE);
-				board [i+1] [j] =1;
+				board [i+1] [j] =2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try{
 				btn [i+1] [j+1].setBackground (Color.BLUE);
-				board [i+1] [j+1] =1;
+				board [i+1] [j+1] =2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try{
 				btn [i+1] [j-1].setBackground (Color.BLUE);
-				board [i+1] [j-1]=1;
+				board [i+1] [j-1]=2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try{
 				btn [i-1] [j].setBackground (Color.BLUE);
-				board [i-1] [j] =1;
+				board [i-1] [j] =2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try{
 				btn [i-1] [j+1].setBackground (Color.BLUE);
-				board [i-1] [j+1] =1;
+				board [i-1] [j+1] =2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			try{
 				btn [i-1] [j-1].setBackground (Color.BLUE);
-				board [i-1] [j-1] =1;
+				board [i-1] [j-1] =2;
 			} catch (ArrayIndexOutOfBoundsException e) {}
 			
 			try{
@@ -486,8 +486,8 @@ void select (String s, JButton b) {
 
 //======================================================================
 
-class GameStart{
+class GameStart{ 
 	public static void main(String[] args) {
-		new Game();
+		new Cell();
 	}
 }
