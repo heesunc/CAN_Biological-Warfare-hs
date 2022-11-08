@@ -1,3 +1,5 @@
+package can1;
+
 import java.io.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -5,7 +7,7 @@ import java.awt.*;
 import java.net.*;
 import javax.swing.tree.*;
 
-class Game implements ActionListener(
+class Game implements ActionListener{
 JFrame jf;
 JPanel mainp, lp, rp;
 JButton btn[][] = new JButton[6][6];
@@ -22,7 +24,7 @@ JLabel bluect = new JLabel("" + blue);
 JLabel left = new JLabel(" ");
 JLabel right = new JLabel(" ");
 
-Game() {
+void Cell() {
 		jf = new JFrame("세균전");
 		mainp = new JPanel();
 		lp = new JPanel();
@@ -103,8 +105,6 @@ Game() {
 		lp.add (btn [i][j]);
 	}
 }
-}
-
 }
 
 void select (String s, JButton b) {
@@ -247,5 +247,247 @@ void select (String s, JButton b) {
 		}
 	}
 	
+	void copy () {
+		r1=0;
+		b=0;
+		for (int i=0; i<6; i++) {
+			for (int j = 0; j<6; j++){
+				if (board [i][j] ==7) {
+					if (result[i][j] ==1) {
+						try {
+							if (result[i][j]-result[i-1] [j-1]<0) {
+									btn [i-1] [j-1].setIcon (r);
+									btn [i-1] [j-1].setLabel("red");
+									result[i-1] [j-1] =1;
+									r1++;
+								}	
+							} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i-1] [j]<0) {
+									btn [i-1] [j].setIcon (r);
+									btn [i-1] [j].setLabel("red");
+									result[i-1] [j] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i-1] [j+1] <0) {
+									btn [i-1] [j+1].setIcon (r);
+									btn [i-1] [j+1].setLabel("red");
+									result[i-1] [j+1] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i] [j-1] <0) {
+									btn [i] [j-1].setIcon (r);
+									btn [i] [j-1].setLabel("red");
+									result[i] [j-1] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i] [j+1] <0) {
+									btn [i] [j+1].setIcon (r);
+									btn [i] [j+1].setLabel("red");
+									result[i] [j+1] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i+1] [j-1] <0) {
+									btn [i+1] [j-1].setIcon (r);
+									btn [i+1] [j-1].setLabel("red");
+									result[i+1] [j-1] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i+1] [j] <0) {
+									btn [i+1] [j].setIcon (r);
+									btn [i+1] [j].setLabel("red");
+									result[i+1] [j] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i+1] [j+1] <0) {
+									btn [i+1] [j+1].setIcon (r);
+									btn [i+1] [j+1].setLabel("red");
+									result[i+1] [j+1] = 1;
+									r1++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+					}
+					else {
+						try {
+							if (result[i][j]-result[i-1] [j-1]==1) {
+									btn [i-1] [j-1].setIcon (bl);
+									btn [i-1] [j-1].setLabel("blue");
+									result[i-1] [j-1] =2;
+									b++;
+								}	
+							} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i-1] [j]==1) {
+									btn [i-1] [j].setIcon (bl);
+									btn [i-1] [j].setLabel("blue");
+									result[i-1] [j] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i-1] [j+1]==1) {
+									btn [i-1] [j+1].setIcon (bl);
+									btn [i-1] [j+1].setLabel("blue");
+									result[i-1] [j+1] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i] [j-1]==1) {
+									btn [i] [j-1].setIcon (bl);
+									btn [i] [j-1].setLabel("blue");
+									result[i] [j-1] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i] [j+1]==1) {
+									btn [i] [j+1].setIcon (bl);
+									btn [i] [j+1].setLabel("blue");
+									result[i] [j+1] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i+1] [j-1]==1) {
+									btn [i+1] [j-1].setIcon (bl);
+									btn [i+1] [j-1].setLabel("blue");
+									result[i+1] [j-1] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i+1] [j]==1) {
+									btn [i+1] [j].setIcon (bl);
+									btn [i+1] [j].setLabel("blue");
+									result[i+1] [j] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+								try{
+									if (result[i][j]-result[i+1] [j+1]==1) {
+									btn [i+1] [j+1].setIcon (bl);
+									btn [i+1] [j+1].setLabel("blue");
+									result[i+1] [j+1] = 2;
+									b++;
+									}
+								} catch (ArrayIndexOutOfBoundsException e) {}
+					}
+				}
+			}
+		}
+		if(r1 != 0) {
+			red += r1;
+			blue -= r1;
+		}
+		else if(b!=0) {
+			blue += b;
+			red -= b;
+		}
+		r1=0;
+		b=0;
+		
+		if((blue+red)==36 || red==0 || blue==0) {
+			System.exit(0);
+		}
+	}
 	
+	public void actionPerformed (ActionEvent e) {
+		String s = e.getActionCommand();
+		
+		if (s.equals("턴넘기기")) {
+			if (turn==1) {
+				turn=2;
+				rp.setBackground (new Color (-12333333));
+			}
+			else {
+				turn=1;
+				rp.setBackground (new Color (-12567));
+			}
+		}
+		else if (s.equals("종료"))
+			System.exit(0);
+		else {
+			JButton b=(JButton)e.getSource();
+			
+			for (int i=0; i<6; i++) {
+				for	(int j=0; j<6 ;j++){
+					if (b==btn [i][j] && board[i][j]==1 && btn[i][j].getLabel() !="blue" && result[i][j] !=1) {
+					red++;
+					btn [i][j].setIcon (r);
+					btn [i][j].setLabel("red");
+					result[i][j] =1;
+					turn=2;
+					rp.setBackground (new Color (-12333333));
+					lp.setBackground (new Color (-12333333));
+					sel();
+					board[i][j] =7;
+					copy();
+				} else if (b==btn [i][j] && board[i][j]==2 && btn[i][j].getLabel() !="red" && result[i][j] !=2) {
+					blue++;
+					btn [i][j].setIcon (bl);
+					btn [i][j].setLabel("blue");
+					result[i][j] =2;
+					turn=1;
+					rp.setBackground (new Color (-12567));
+					lp.setBackground (new Color (-12567));
+					sel();
+					board[i][j] =7;
+					copy();
+				} else if (b==btn [i][j] && board[i][j]==3 && btn[i][j].getLabel() !="blue" && result[i][j] !=3) {
+					del();
+					btn [i][j].setIcon (r);
+					btn [i][j].setLabel("red");
+					result[i][j] =1;
+					turn=2;
+					rp.setBackground (new Color (-12333333));
+					lp.setBackground (new Color (-12333333));
+					sel();
+					board[i][j] =7;
+					copy();
+				} else if (b==btn [i][j] && board[i][j]==4 && btn[i][j].getLabel() !="red" && result[i][j] !=4) {
+					del();
+					btn [i][j].setIcon (bl);
+					btn [i][j].setLabel("blue");
+					result[i][j] =2;
+					turn=1;
+					rp.setBackground (new Color (-12567));
+					lp.setBackground (new Color (-12567));
+					sel();
+					board[i][j] =7;
+					copy();
+				} else if (b==btn[i][j]&&(board[i][j]>4 || board[i][j]==0)) {
+					sel();
+				}
+			}
+		}
+		select(s,b);
+		redct.setText(""+red);
+		bluect.setText(""+blue);
+		if(blue+red==36)
+			jf.dispose();
+			
+	}
+	
+	}
+}
+
+//======================================================================
+
+class GameStart{
+	public static void main(String[] args) {
+		new Game();
+	}
 }
