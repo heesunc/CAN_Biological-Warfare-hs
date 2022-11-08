@@ -74,7 +74,10 @@ class Cell implements ActionListener{
 
 		jf.setBounds(100, 100, 600, 300);
 		jf.show();
-
+		
+		jf.setVisible(true);
+		jf.setResizable(false);	//사이즈 재조정 불가능
+		jf.setLocationRelativeTo(null);	//창이 가운데에 뜨도록 함
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
@@ -484,10 +487,73 @@ void select (String s, JButton b) {
 	}
 }
 
+
+// 첫 화면 GUI 코드 =======================================================
+public class FirstScreen extends JFrame {
+	public FirstScreen(){
+		
+		// 게임 시작 버튼
+		JPanel pan1 = new JPanel();
+		JButton btn1 = new JButton("게임 시작");
+		
+		btn1.setBounds(95,70,100,50);
+		pan1.add(btn1);	
+		add(btn1);
+		
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Cell();
+				setVisible(false);
+			}
+		});
+		
+		// 게임 저장 버튼
+		JPanel pan2 = new JPanel();
+		JButton btn2 = new JButton("게임 저장");
+		
+		btn2.setBounds(95,140,100,50);
+		
+		pan2.add(btn2);	
+		add(btn2);
+		
+//		btn2.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				new Cell();
+//				setVisible(false);
+//			}
+//		});
+		
+		// 게임 종료 버튼
+		JPanel pan3 = new JPanel();
+		JButton btn3 = new JButton("게임 종료");
+		
+		btn3.setBounds(95,210,100,50);
+		pan3.add(btn3);	
+		add(btn3);
+		
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setDefaultCloseOperation(EXIT_ON_CLOSE);
+				setVisible(false);
+			}
+		});		
+		
+		setLayout(null);
+		setVisible(true);	//창을 눈에 보이도록 함
+		setSize(300, 400);	//사이즈는 640*480
+		setResizable(false);	//사이즈 재조정 불가능
+		setLocationRelativeTo(null);	//창이 가운데에 뜨도록 함
+		setDefaultCloseOperation(EXIT_ON_CLOSE);	//창을 끄면 프로그램을 종료
+	}
+}
+
+
+
 //======================================================================
 
 class GameStart{ 
 	public static void main(String[] args) {
-		new Cell();
+		//new Cell();
+		new FirstScreen();
 	}
 }
