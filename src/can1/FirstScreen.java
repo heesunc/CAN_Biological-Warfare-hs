@@ -491,6 +491,7 @@ void select (String s, JButton b) {
 // 첫 화면 GUI 코드 =======================================================
 public class FirstScreen extends JFrame {
 	public FirstScreen(){
+		setTitle("세균전");
 		
 		// 게임 시작 버튼
 		JPanel pan1 = new JPanel();
@@ -509,19 +510,23 @@ public class FirstScreen extends JFrame {
 		
 		// 게임 저장 버튼
 		JPanel pan2 = new JPanel();
-		JButton btn2 = new JButton("게임 저장");
+		JButton btn2 = new JButton("게임 로드");
 		
 		btn2.setBounds(95,140,100,50);
 		
 		pan2.add(btn2);	
 		add(btn2);
 		
-//		btn2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				new Cell();
-//				setVisible(false);
-//			}
-//		});
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showOpenDialog(fc);
+				//게임 불러오기에서 PC의 디렉토리에서 파일을 찾을 수 있도록 GUI를 제공해야 한다.
+				//게임 저장 시 파일명을 지정하고, 파일의 위치를 선택할 수 있어야 한다.
+				setVisible(false);
+			}
+		});
 		
 		// 게임 종료 버튼
 		JPanel pan3 = new JPanel();
@@ -536,18 +541,16 @@ public class FirstScreen extends JFrame {
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				setVisible(false);
 			}
-		});		
+		});
 		
 		setLayout(null);
 		setVisible(true);	//창을 눈에 보이도록 함
-		setSize(300, 400);	//사이즈는 640*480
+		setSize(300, 400);	//사이즈 정의
 		setResizable(false);	//사이즈 재조정 불가능
 		setLocationRelativeTo(null);	//창이 가운데에 뜨도록 함
 		setDefaultCloseOperation(EXIT_ON_CLOSE);	//창을 끄면 프로그램을 종료
 	}
 }
-
-
 
 //======================================================================
 
