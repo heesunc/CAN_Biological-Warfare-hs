@@ -514,12 +514,11 @@ public class FirstScreen extends JFrame {
 		
 		btn2.setBounds(95,140,100,50);
 		
-		pan2.add(btn2);	
+		pan2.add(btn2);
 		add(btn2);
 		
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				final JFileChooser fc = new JFileChooser();
 				int returnVal = fc.showOpenDialog(fc);
 				//게임 불러오기에서 PC의 디렉토리에서 파일을 찾을 수 있도록 GUI를 제공해야 한다.
